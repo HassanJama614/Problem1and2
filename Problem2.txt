@@ -1,0 +1,52 @@
+def dot_product_procedure(v1, v2, ps):
+    """
+    Calculates the dot product of two vectors and stores it in ps.
+    """
+    if len(v1) != len(v2):
+        print("Error: Vectors must have the same dimension for dot product.")
+        return
+
+    dot_prod = 0
+    for i in range(len(v1)):
+        dot_prod += v1[i] * v2[i]
+    ps[0] = dot_prod  # Store the result in the passed list
+
+def are_orthogonal_procedure(pairs_of_vectors):
+    """
+    Determines if pairs of vectors are orthogonal using the dot_product procedure.
+    """
+    for i in range(len(pairs_of_vectors)):
+        v1 = pairs_of_vectors[i][0]
+        v2 = pairs_of_vectors[i][1]
+        product = [0]  # Use a list to simulate pass-by-reference
+        dot_product_procedure(v1, v2, product)
+        if product[0] == 0:
+            print(f"Vectors {v1} and {v2} are orthogonal.")
+        else:
+            print(f"Vectors {v1} and {v2} are not orthogonal (dot product: {product[0]}).")
+
+def dot_product_function(v1, v2):
+    """
+    Calculates and returns the dot product of two vectors.
+    """
+    if len(v1) != len(v2):
+        print("Error: Vectors must have the same dimension for dot product.")
+        return None
+    dot_prod = 0
+    for i in range(len(v1)):
+        dot_prod += v1[i] * v2[i]
+    return dot_prod
+
+def are_orthogonal_function(pairs_of_vectors):
+    """
+    Determines if pairs of vectors are orthogonal using the dot_product function.
+    """
+    for i in range(len(pairs_of_vectors)):
+        v1 = pairs_of_vectors[i][0]
+        v2 = pairs_of_vectors[i][1]
+        dot_prod = dot_product_function(v1, v2)
+        if dot_prod == 0:
+            print(f"Vectors {v1} and {v2} are orthogonal.")
+        else:
+            print(f"Vectors {v1} and {v2} are not orthogonal (dot product: {dot_prod}).")
+

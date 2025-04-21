@@ -1,0 +1,19 @@
+def sum_of_distinct_elements(set1, set2):
+    distinct_elements = []
+    sum_distinct = 0
+
+    # Add elements from set1 that are not in set2
+    for element in set1:
+        if element not in set2:
+            distinct_elements.append(element)
+
+    # Add elements from set2 that are not in set1
+    for element in set2:
+        if element not in set1 and element not in distinct_elements:
+            distinct_elements.append(element)
+
+    # Calculate the sum of the distinct elements
+    for element in distinct_elements:
+        sum_distinct += element
+
+    return sum_distinct
